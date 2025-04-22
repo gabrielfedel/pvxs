@@ -926,6 +926,9 @@ MAIN(testqsingle)
 #endif
     {
         ioc::TestIOC ioc;
+        char hostname[255];
+        gethostname(hostname, 255);
+        asSetSubstitutions("HOSTNAME=" + hostname);
         // https://github.com/epics-base/epics-base/issues/438
         asSetFilename("../testioc.acf");
         testdbReadDatabase("testioc.dbd", nullptr, nullptr);

@@ -2,6 +2,11 @@ UAG(MYSELF) {
     "$(user)"
 }
 
+
+HAG(MYHOST) {
+   $(HOSTNAME) 
+}
+
 ASG(DEFAULT) {
     RULE(1,WRITE,TRAPWRITE)
 }
@@ -9,6 +14,7 @@ ASG(DEFAULT) {
 ASG(SPECIAL) {
     RULE(1,WRITE,TRAPWRITE) {
         UAG(MYSELF)
+        HAG(MYHOST)
     }
 }
 
